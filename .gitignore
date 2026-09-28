@@ -1,0 +1,8 @@
+.env
+__pycache__/
+.pytest_cache/
+.streamlit/
+*.pyc
+data/processed/*.csv
+data/synthetic/runtime_memories.json
+.env
