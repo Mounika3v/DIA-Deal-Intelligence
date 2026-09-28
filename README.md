@@ -1,29 +1,26 @@
 # DIA — Deal Intelligence Agent
 
-DIA is a focused B2B sales copilot built around persistent experience memory. It combines the supplied CRM pipeline with a clearly labeled synthetic interaction layer so an agent can retain objections, stakeholder concerns, responses and outcomes, then recall relevant experience when coaching on the next deal.
+DIA (Deal Intelligence Agent) is a memory-enabled sales intelligence application that combines CRM data, deal-risk signals, and previous sales experiences to help identify relevant context and suggest the next step for an opportunity.
 
-## Core loop
-**CRM facts → Retain experience → Recall similar experience → Recommend next action**
+The application brings together three sources of information:
 
-## Run
-```bash
-pip install -r requirements.txt
-cp .env.example .env
-streamlit run app.py
-```
+- Current CRM facts about an opportunity
+- Risk signals calculated from deal and pipeline data
+- Previous sales interactions stored as experience memory
 
-Set `GROQ_API_KEY` and `HINDSIGHT_API_KEY` in `.env` for live services. The app keeps a local deterministic fallback so the demo remains runnable when credentials are unavailable.
+The goal is to move from isolated CRM information to a more informed, explainable recommendation.
 
-## Important data note
-The five CSV files in `data/raw/` are the supplied CRM dataset. The interaction layer in `data/synthetic/interactions.json` is synthetic demonstration data and is explicitly labeled as such.
+---
 
-## Demo
-1. Open **Deal Copilot**.
-2. Select Cancity / opportunity `1C1I7A6R` if available.
-3. Prepare the deal to show recalled experience.
-4. Enter a new CFO pricing signal and click **Remember this**.
-5. Ask: `What should I do next on pricing?`
-6. Expand **Why DIA said this** to show recalled evidence.
+## Core Workflow
 
-## Hindsight
-The memory wrapper uses the official Python client when `HINDSIGHT_API_KEY` is configured. The implementation uses Hindsight `retain` for memory storage and `recall` for contextual retrieval.
+```text
+CRM Data
+   ↓
+Opportunity & Risk Analysis
+   ↓
+Relevant Experience Memory
+   ↓
+DIA Agent
+   ↓
+Explainable Next-Step Recommendation
