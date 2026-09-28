@@ -6,3 +6,5 @@ __pycache__/
 data/processed/*.csv
 data/synthetic/runtime_memories.json
 .env
+.venv/
+.venv/
